@@ -1,0 +1,2 @@
+# skoldiskurs
+Forskningsprojekt Handelshögskolan.
