@@ -4,17 +4,38 @@ import pandas as pd
 ### Create relevant sample from riksdagsanföranden
 ### Data collected using https://github.com/kb-labb/riksdagen_anforanden
 
-data = "/home/gilleti/Documents/riksdagen_anforanden/data/df_anforanden_metadata.parquet"
+#data = "/home/gilleti/Documents/riksdagen_anforanden/data/df_anforanden_metadata.parquet"
+data = "motioner_2014_2021.parquet"
 
 
 df = pd.read_parquet(data, engine='fastparquet')
-df = df[df["anforandetext"].notna()]
-#df = df[df["anforandetext"].str.contains('grundskol|faktakunskap')] # OR
-df = df[(df['anforandetext'].str.contains('grundskol')) & (df['anforandetext'].str.contains('idrott'))] # AND
-df = df[~df['anforandetext'].str.contains('samverk')] # NOT
+
+print(df.columns)
+
+df = df[df["text"].notna()]
+#o_df = df[df["text"].str.contains('grundskol')] # OR
+
+o_df = df[df["text"].str.contains('grundskol|lärar|skol')] # OR
+
+
+print(type(o_df.text.str.count("lärar|grundskol|skol")))
+
+
+o_df = o_df[(o_df['text'].str.contains(' skol')) & (df['text'].str.contains('universit'))] # AND
+
+o_df = o_df[o_df.text.str.count("lärar|grundskol| skol") > 1]
+
+
+o_df = o_df[~o_df['text'].str.contains('bistånd|skolreaktor')] # NOT
 
 with pd.option_context('display.max_colwidth', None):
-  print(df["anforandetext"])
+  print(o_df["text"])
+
+print(len(df))
+print(len(o_df))
 
 
+#elev lärare kunskap
+# skol grundskol
 
+# universitet kan förekomma samtidigt som skol men ej ensamt eller med lärar
