@@ -39,3 +39,6 @@ print(len(o_df))
 # skol grundskol
 
 # universitet kan förekomma samtidigt som skol men ej ensamt eller med lärar
+
+
+# small change to see if i managed to unfuck my bad commit
