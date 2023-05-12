@@ -3,6 +3,14 @@ Forskningsprojekt Handelshögskolan.
 
 Here, we outline the pipeline of Ema's project, from data collection and parsing to training and using the vector representations.
 
+Pipeline is largely as follows:
+
+1. Download data from riksdagens open data.
+2. Parse data, transform to datafiles.
+3. Tokenize and lemmatize data.
+4. Train vectors.
+5. Use vectors.
+
 The corpora we are working with is two-fold: a political corpus and a newspaper corpus. The political corpus consists of the following data sources:
 
 1. Riksdagens anföranden.
