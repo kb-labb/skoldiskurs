@@ -1,20 +1,40 @@
 import stanza
 import pandas as pd
 
-motioner_new = "/home/hilhag/prjs/skoldiskurs/data/motioner_2014_2021.parquet"
-motioner_old = "/home/hilhag/prjs/skoldiskurs/data/anforanden_1993_2021.parquet"
+#for col in anf_new.columns:
+#    print(col)
+#print(anf_new).head()
 
-mot_new = pd.read_parquet(motioner)
-anf_new = pd.read_parquet(anforanden)
+motioner_new = "/home/hilhag/prjs/skoldiskurs/data/motioner_2014_2023.parquet"
+mot_new = pd.read_parquet(motioner_new)
+mot_new = mot_new[mot_new['text'].notna()]
+mot_new_df = mot_new['text'] # date var is "('year',)" # date is datum
 
-anf_df = anf["anforandetext"]
-mot_df = mot["titel"] + ". " + mot["text"]
+anforanden_new = "/home/hilhag/prjs/skoldiskurs/data/anforanden_1993-2023.parquet"
+anf_new = pd.read_parquet(anforanden_new)
+anf_new = anf_new[anf_new['anforandetext'].notna()]
+anf_new_df = anf_new["anforandetext"] # date variable is dok_datum
 
-df = pd.concat([mot_df, anf_df], axis=0)
-df = df.dropna()
-corpus = df.to_list()
+# Some super weird column formatting has accidentally happened in the older files
+# The column names are as follows: ('dok_id',), ('text',), ('year',)
+# TODO()
+# Go back to parsing script and fix it
+# List column command: print(anf_old.columns.tolist())
+anforanden_old = "/home/hilhag/prjs/skoldiskurs/data/anforanden_1962-1992.parquet"
+anf_old = pd.read_parquet(anforanden_old)
+anf_old = anf_old[anf_old['(\'text\',)'].notna()]
+anf_old = anf_old['(\'text\',)'] # date var is "('year',)"
 
-documents = corpus[0:10]
+motioner_old = "/home/hilhag/prjs/skoldiskurs/data/motioner_1971_2013.parquet"
+mot_old = pd.read_parquet(motioner_old)
+mot_old = mot_old[mot_old['(\'text\',)'].notna()]
+mot_old_df = mot_old['(\'text\',)'] # date var is "('datum',)"
+
+#df = pd.concat([mot_df, anf_df], axis=0)
+#df = df.dropna()
+#corpus = df.to_list()
+
+#documents = corpus[0:10]
 
 #out_docs = []
 #nlp = stanza.Pipeline("sv", processors="tokenize, lemma", tokenize_batch_size=4)
