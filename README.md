@@ -32,4 +32,14 @@ The corpora we are working with is two-fold: a political corpus and a newspaper 
 
 The data is processed using the sparv pipeline. Tokenization and lemmatization is performed. Pre-processing scripts are found in the transform directory. The script transform_data.py takes as input the parquet files outputted from the download steps and outputs a concatenated parquet files called political_corpus.txt. This is actually an unnecessary step that was undertaken before I realized that the sparv pipeline demands a different data structure. Because of this, an extra step create_sparv_input.py is performed. This creates the sparv specific corpus structure of corpus/year/source as described in the sparv user manual.
 
-The pipeline results in a number of xml files that are consequently parsed and transformed to a txt file with one sentence per line.
+The pipeline results in a number of xml under the export directory at corpus/year/export.
+
+## THE TRAINING
+
+The training largely follows Justyna Sikora's pipeline for the Språkbanken vectors.
+
+1. First, we run create_datafile.py as "python3 create_datafile.py -i input_file -t lemma -o output_file". At this point in time, the input file is a csv file but this a to do as we want it to input the xml files outputted by sparv directly. The output file is a txt file with one sentence per line.
+
+2. With the output file from above as input, we run clean_corpus.py to filter out some unwanted tokens, for example numeric tokens. This seems like a step that can be performed under step one, so this is a to do.
+
+3. Train vectors with train_sentence.py. This results in a bin file. 
