@@ -11,6 +11,8 @@ Pipeline is largely as follows:
 4. Train vectors with train_sentence.py.
 5. Use vectors.
 
+## THE DATA
+
 The corpora we are working with is two-fold: a political corpus and a newspaper corpus. The political corpus consists of the following data sources:
 
 1. Riksdagens anföranden.
@@ -24,7 +26,10 @@ The corpora we are working with is two-fold: a political corpus and a newspaper 
 
    2.1. The pipeline for riksdagens motioner is largely the same as for anforanden. The scripts data_scripts/motioner/download_motioner_2014-2023.sh and data_scripts/motioner/download_motioner_2014-2023.sh generated two dirs of json files: motioner_1971_2013_json and motioner_2014-2023_json. Data from 1962-1970 is missing from riksdagens datasets and is therefore not included. There are some pdf:s available for download on riksdagens hemsida. That is on my to do list.
 
-   2.2. To parse motioner, use data_scripts/motioner/parse_motioner_1971-2013.py and data_scripts/parse_motioner_2014-2023.py. These scripts generate two dataframes stored in parquet files, which is the data we will be using to create our cectors. All older files (both motioner and anföranden) result in less detailed dataframes, consisting of document id:s (of varying quality), text and dates.
+   2.2. To parse motioner, use data_scripts/motioner/parse_motioner_1971-2013.py and data_scripts/parse_motioner_2014-2023.py. These scripts generate two dataframes stored in parquet files, which is the data we will be using to create our vectors. All older files (both motioner and anföranden) result in less detailed dataframes, consisting of document id:s (of varying quality), text and dates.
 
+## THE PRE-PROCESSING
 
-The data is tokenized and lemmatized using the sparv pipeline. The pipeline results in a number of xml files that are consequently parsed and transformed to a txt file with one sentence per line.
+The data is processed using the sparv pipeline. Tokenization and lemmatization is performed. Pre-processing scripts are found in the transform directory. The script transform_data.py takes as input the parquet files outputted from the download steps and outputs a concatenated parquet files called political_corpus.txt. This is actually an unnecessary step that was undertaken before I realized that the sparv pipeline demands a different data structure. Because of this, an extra step create_sparv_input.py is performed. This creates the sparv specific corpus structure of corpus/year/source as described in the sparv user manual.
+
+The pipeline results in a number of xml files that are consequently parsed and transformed to a txt file with one sentence per line.
