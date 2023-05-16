@@ -38,8 +38,6 @@ The pipeline results in a number of xml under the export directory at corpus/yea
 
 The training largely follows Justyna Sikora's pipeline for the Språkbanken vectors.
 
-1. First, we run create_datafile.py as "python3 create_datafile.py -i input_file -t lemma -o output_file". At this point in time, the input file is a csv file but this a to do as we want it to input the xml files outputted by sparv directly. The output file is a txt file with one sentence per line.
+1. First, we run create_datafile.py as "python3 create_datafile.py -i input_file -t lemma -o output_file". At this point in time, the input file is a csv file but this a to do as we want it to input the xml files outputted by sparv directly. The output file is a txt file with one sentence per line. It is also cleaned of some non-Swedish chars (in line with Justyna's script clean_corpus.py).
 
-2. With the output file from above as input, we run clean_corpus.py to filter out some unwanted tokens, for example numeric tokens. This seems like a step that can be performed under step one, so this is a to do.
-
-3. Train vectors with train_sentence.py. This results in a bin file. 
+2. Train vectors with train_sentence.py. This results in a bin file. 
