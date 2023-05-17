@@ -36,8 +36,8 @@ The pipeline results in a number of xml under the export directory at corpus/yea
 
 ## THE TRAINING
 
-The training largely follows Justyna Sikora's pipeline for the Språkbanken vectors.
+The training is outlined from Justyna Sikora's pipeline for the Språkbanken news corpora vectors. However, some changes have been made. At the time of writing, there is an issue with the Sparv pipeline being too slow. There was some initial problems with the Sparv config file resulting in some data that is not interesting to us but solely slows down the process and with some invalid XML. As time is short, I have not been able to re-run this data with the right settings, therefore we need to do some post-process cleanup. I will not go in to further detail here but it can be found in the post-process scripts.
 
-1. First, we run create_datafile.py as "python3 create_datafile.py -i input_file -t lemma -o output_file". At this point in time, the input file is a csv file but this a to do as we want it to input the xml files outputted by sparv directly. The output file is a txt file with one sentence per line. It is also cleaned of some non-Swedish chars (in line with Justyna's script clean_corpus.py).
+1. sparv_to_vector.py is run with the arguments -start YYYY -end YYYY where YYYY is an int year such as 1975. It takes the sparv xml files, corrects and extracts lemmas where can be found, with token as a fall back. It results in a temporary dir tmp where txt files are stored. The Python script makes a call to run.sh which concatenates all the txt files into one large corpus file. This is then inputted to train_sentences.py via sparv.sh where the fasttext vectors are created. The corpus file is a txt file with one sentence per line. 
 
-2. Train vectors with train_sentence.py. This results in a bin file. 
+The time periods we are interested in are: 1962-1982, 1983-2003, 2004-2023. Maybe? 
