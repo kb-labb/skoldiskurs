@@ -43,3 +43,6 @@ Edit: Sparv pipeline is too slow, so I had to do part of the tokenization and le
 1. sparv_to_vector.py is run with the arguments -start YYYY -end YYYY where YYYY is an int year such as 1975. It takes the sparv xml files, corrects and extracts lemmas where can be found, with token as a fall back. It results in a (a) temporary dir tmp where txt files are stored (Sparv output) (and later concatenated into one large txt file and (b) one large txt file (Stanza output).
 
 The Python script makes a call to run.sh with the (1) input dir where the corpus is stored, (2) the concatenated corpus file and (3) the name of the outputted vector model. This is then inputted to train_sentences.py via sparv.sh where the fasttext vectors are created. The corpus file is a txt file with one sentence per line.
+
+## NOTE
+First round resulted in contaminated vectors for "skola" due to the baseform of "skall" and "ska", which is "skola". Another round of tokenization where "skall" and "ska" is represented by (fictuous) baseform "skall" is performed.
