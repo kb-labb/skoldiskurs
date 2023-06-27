@@ -1,0 +1,11 @@
+Här finns viss dokumentation of gensims FastText: https://radimrehurek.com/gensim/models/fasttext.html
+
+I början handlar det mest om träning, vilket du ju inte behöver göra, men det finns lite exempel på andra funktioner som kan vara bra för dig, t.ex att jämföra vektorer för olika modeller. För det behöver du också ett bibliotek som heter numpy. Det ska du kunna installera genom att skriva direkt i terminalen (alltså innan du har öppnat pythonskalet) såhär:
+
+pip3 install numpy
+
+Därefter kan du importera när du har öppnat python3 såhär:
+
+import numpy as np
+
+Här finns en till tutorial https://notebook.community/ELind77/gensim/docs/notebooks/FastText_Tutorial med saker som kan intressera dig. Jag tänker bland annat på avsnittet "Similarity operations". 
