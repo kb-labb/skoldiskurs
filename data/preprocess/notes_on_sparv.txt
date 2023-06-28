@@ -1,0 +1,5 @@
+This is a reminder on how Sparv works. It is moot now because we ended up not using Sparv but I still want to make a note of it in case we forget at a later point in time. Sparv is a command line tool so there are no Python scripts to tell the story.
+
+Sparv was deemed too slow to use in this project but some findings that could be relevant here is that: (1) small files are bad for the performance of Sparv as it reads SALDO in to memory every time we process a new file. There is a pre-loader but it doesn't help much. (2) There is no way to just do any sort of pre-processing with Sparv without also doing dependency parsing. That's why it's so incredibly slow.
+
+We ended up just using Stanza, which is the underlying library of Sparv.
