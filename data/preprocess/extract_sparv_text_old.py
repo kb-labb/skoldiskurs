@@ -6,6 +6,8 @@ from pathlib import Path
 import os
 import subprocess
 
+# This script was used when we were still working with Sparv data (where the XML was, at times, invalid. Should not be used going further.
+
 parser = argparse.ArgumentParser(formatter_class = argparse.RawDescriptionHelpFormatter)
 parser.add_argument("-start", "--start_year")
 parser.add_argument("-end", "--end_year")
