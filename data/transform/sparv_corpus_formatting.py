@@ -2,10 +2,10 @@ import stanza
 import pandas as pd
 import os
 
+# This script is a quick and dirty hack to create the very specific input that Sparv requires. It uses the data outputted from compile_corpus.py but please merge these scripts or find another way if it has to be done again.
+
 df = pd.read_parquet("political_corpus.parquet")
-
 # CREATE CORPUS DIR adapted to sparv pipeline
-
 corpus_dir = "/home/hilhag/prjs/skoldiskurs/corpus/"
 
 for i in range(len(df)):

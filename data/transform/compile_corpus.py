@@ -1,6 +1,10 @@
 import stanza
 import pandas as pd
 
+# This script is moot.
+# It compiles the anföranden and motioner to one political corpus, which in turn needs to be processed (tokenization etc). I created it before I realized that Sparv takes a very specific input. This script can process anföranden and motioner ONLY but I'll still save it if it turns out we need it later.
+
+
 ### READ DATA
 
 motioner_new = "/home/hilhag/prjs/skoldiskurs/data/motioner_2014_2023.parquet"
