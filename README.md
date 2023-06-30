@@ -97,8 +97,7 @@ model.wv.doesnt_match("lärare elev undervisning pommac".split())
 ```
 
 ## Some methodological choices
-Models that intrinsically track semantic and lexical change are still experimental.
-Here, we need to do some justification as to why 
+Models that intrinsically track semantic and lexical change are still experimental. I wanted to use a well-established model for Ema's project. Using multiple models to compare lexical use over time is not standard and I need to find some references but I feel like it's soldig. However, we need to argue that it is. This section is obviously not done yet. 
 
 ## Evaluation
 No evaluation, other than ocular inspection, has been performed at this time. Some inspiration can be found here:
