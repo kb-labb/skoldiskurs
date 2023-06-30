@@ -1,4 +1,4 @@
-## A longitudinal study of political school discourse 1962-2023
+##A longitudinal study of political school discourse 1962-2023
 
 This codebase contains all produced material for Ema Demir’s (ongoing) research project on Swedish school discourse in a political setting from 1962 to 2023. Here, we have created the tools to study the semantic shift on lexical units related to schools.
 
@@ -31,7 +31,7 @@ Gensim’s implementation of fastText also extends beyond the original Facebook 
 
 A detailed description of the process can be found in documentation/process.md.
 
-## fastText model
+##fastText model
 
 fastText is a vector embedding model for representing and understanding text. It captures semantic meaning of words while considering morphological variations. 
 
@@ -39,7 +39,7 @@ A key aspect of fastText are subword embeddings. Not only does fastText capture 
 
 In the training process, a continuous bag-of-words (CBOW) model predicts the probability of a word based on context, just like Word2Vec. But instead of predicting whole words, fastText predicts the probability of each subword given the context. By considering subwords, fastText can generate word representations even for unseen or misspelled words by leveraging the embeddings of their constituent subwords. Compared to Word2Vec, fastText is efficient. The use of subword units reduces the vocabulary size and enables fastText to handle a large number of words, including rare or out-of-vocabulary words. This, in turn, creates robust representations. 
 
-## Usage
+##Usage
 
 This is not a comprehensive guide to using gensim fastText. It is specifically aimed at Ema. So, open terminal as previously instructed. Open the Python interactive shell, in which we will perform our analyses, by typing:
 
