@@ -1,5 +1,4 @@
 # skoldiskurs
-Forskningsprojekt Handelshögskolan.
 
 Here, we outline the pipeline of Ema's project, from data collection and parsing to training and using the vector representations.
 
