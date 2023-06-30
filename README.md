@@ -96,6 +96,10 @@ Find words that do not match the context:
 model.wv.doesnt_match("lärare elev undervisning pommac".split())
 ```
 
+## Some methodological choices
+Models that intrinsically track semantic and lexical change are still experimental.
+Here, we need to do some justification as to why 
+
 ## Evaluation
 No evaluation, other than ocular inspection, has been performed at this time. Some inspiration can be found here:
 - https://web.stanford.edu/~jurafsky/slp3/6.pdf (section 6.10.1)
