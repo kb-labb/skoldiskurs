@@ -1,6 +1,6 @@
 ## A longitudinal study of political school discourse 1962-2023
 
-This codebase contains all produced material for Ema Demir’s (ongoing) research project on Swedish school discourse in a political setting from 1962 to 2023. Here, we have created the tools to study the semantic shift on lexical units related to schools.
+This codebase contains all produced material for Ema Demir’s research project on Swedish school discourse in a political setting from 1962 to 2023. Here, we have created the tools to study the semantic shift on lexical units related to schools.
 
 We do this by producing multiple vector representation of political text data using fastText embeddings, which is an extension of the word2vec model. We divide the data into buckets representing a time period. The periods at hands are chosen using two different approaches:
 
@@ -31,7 +31,7 @@ Gensim’s implementation of fastText also extends beyond the original Facebook 
 
 A detailed description of the process can be found in documentation/process.md.
 
-##fastText model
+## fastText model
 
 fastText is a vector embedding model for representing and understanding text. It captures semantic meaning of words while considering morphological variations. 
 
@@ -39,7 +39,7 @@ A key aspect of fastText are subword embeddings. Not only does fastText capture 
 
 In the training process, a continuous bag-of-words (CBOW) model predicts the probability of a word based on context, just like Word2Vec. But instead of predicting whole words, fastText predicts the probability of each subword given the context. By considering subwords, fastText can generate word representations even for unseen or misspelled words by leveraging the embeddings of their constituent subwords. Compared to Word2Vec, fastText is efficient. The use of subword units reduces the vocabulary size and enables fastText to handle a large number of words, including rare or out-of-vocabulary words. This, in turn, creates robust representations. 
 
-##Usage
+## Usage
 
 This is not a comprehensive guide to using gensim fastText. It is specifically aimed at Ema. So, open terminal as previously instructed. Open the Python interactive shell, in which we will perform our analyses, by typing:
 
@@ -97,7 +97,7 @@ model.wv.doesnt_match("lärare elev undervisning pommac".split())
 ```
 
 ## Some methodological choices
-Models that intrinsically track semantic and lexical change are still experimental. I wanted to use a well-established model for Ema's project. Using multiple models to compare lexical use over time is not standard and I need to find some references but I feel like it's soldig. However, we need to argue that it is. This section is obviously not done yet. 
+Models that intrinsically track semantic and lexical change are still experimental. I wanted to use a well-established model for Ema's project. Using multiple models to compare lexical use over time is not standard. Please be aware of this.
 
 ## Evaluation
 No evaluation, other than ocular inspection, has been performed at this time. Some inspiration can be found here:
@@ -106,6 +106,8 @@ No evaluation, other than ocular inspection, has been performed at this time. So
 - https://aclanthology.org/W16-2513.pdf
 
 ## Resources
+Some resources for non-data scientists are listed below.
+
 Good tutorial on similarity operations can be found here: https://notebook.community/ELind77/gensim/docs/notebooks/FastText_Tutorial
 
 Here is a link to future me with some quantitative eval inspiration: 
